@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block body %}
+  <h2>All Stories</h2>
+  <ul>
+    {% for story in stories %}
+      <li>{% include "includes/stories.html" %}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Interesting Blog</title>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1><a href="{{ url_for('homepage') }}">Interesting Blog</a></h1>
+      </div>
+    </header>
+    <div>
+    {% if not session.singed_in %}
+      <a href="{{ url_for('sing_in') }}">sing in</a>
+      <a href="{{ url_for('sing_up') }}">sing up</a>
+    {% else %}
+      <a href="{{ url_for('create_story') }}">create story</a>
+      <a href="{{ url_for('sing_out')}}">sing out</a>
+    {% endif %}
+    </div>
+    {% for message in get_flashed_messages() %}
+      <div>{{ message }}</div>
+    {% endfor %}
+    {% block body %}{% endblock %}
+  <body>
+</html>
