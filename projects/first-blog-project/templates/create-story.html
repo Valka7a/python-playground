@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block body %}
+  <h2>create story</h2>
+  <form action="{{ url_for('create_story') }}" method="post">
+    <dl>
+      <dt><h1>Story:</h1></dt>
+      <dt><h2>Title:</h2></dt>
+      <dd><textarea name="title"></textarea></dd>
+      <dd><textarea name="content"></textarea></dd>
+      <dd><input type="submit" value="create"></dd>
+    </dl>
+  </form>
+{% endblock %}

@@ -1,2 +1,4 @@
-<a class="avatar" href="{{ url_for('user_detail', username=message.user.username) }}"><img src="{{ message.user.gravatar_url() }}" /></a>
-<p class="message-content">{{ message.content|urlize }}</p>
+<a href="{{ url_for('single_story', id = story.id) }}">
+  {{ story.title }}
+</a>
+<br/>
