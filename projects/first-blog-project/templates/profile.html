@@ -1,5 +1,18 @@
 {% extends "layout.html" %}
 {% block body %}
-  {{ user.username }}
-  {{ user.first_name }}
+  <h2>Name: {{ user.first_name }}</h2>
+  <h2>Last name: {{ user.last_name }}</h2>
+  <h2>Email: {{ user.email }}</h2>
+
+  <a href="{{ url_for('profile_settings', username = user.username) }}">
+    Settings
+  </a>
+
+  <h1>All Stories</h1>
+  {% for story in stories %}
+    <h2>{{ story.title }}</h2>
+    <p>
+      {{ story.content }}
+    </p>
+  {% endfor %}
 {% endblock %}

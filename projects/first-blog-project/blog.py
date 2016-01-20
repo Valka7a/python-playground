@@ -86,14 +86,6 @@ def login_required(f):
         return f(*args, **kwargs)
     return inner
 
-"""
-     @wraps(f)
-    def decorated_function(*args, **kwargs):
-        if g.user is None:
-            return redirect(url_for('login', next=request.url))
-        return f(*args, **kwargs)
-    return decorated_function
-"""
 @app.route('/')
 def homepage():
     stories = Story.select()
@@ -176,24 +168,30 @@ def sign_in():
     return render_template('sign-in.html')
 
 @app.route('/sign-out/')
-#@login_required
+@login_required
 def sign_out():
     session.clear()
     return redirect(url_for('homepage'))
 
 @app.route('/profile/<username>/')
-#@login_required
+@login_required
 def profile(username):
     user = get_object_or_404(User, User.username == username)
+    stories = Story.select().where(Story.user == user)
 
-    return render_template('profile.html', user = user)
+    return render_template('profile.html', stories = stories, user = user)
 
-@app.route('/profile/<username>/edit')
+@app.route('/settings/<username>', methods = ['GET', 'POST'])
 @login_required
-def profile_edit(username):
+def profile_settings(username):
     user = get_object_or_404(User, User.username == username)
 
-    return render_template('profile-edit.html')
+#    user.first_name = request.form['first_name']
+#    user.last_name = request.form['last_name']
+#    user.password = request.form['password']
+#    user.email = request.form['email']
+
+    return render_template('profile-settings.html', user = user)
 
 @app.context_processor
 def _inject_user():
