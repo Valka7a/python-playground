@@ -1,6 +1,10 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
+<<<<<<< HEAD
+=======
+*$py.class
+>>>>>>> 54c11a3a3c8aca4575624ad6ebc29159d7dff7cc
 
 # C extensions
 *.so
@@ -42,6 +46,10 @@ htmlcov/
 nosetests.xml
 coverage.xml
 *,cover
+<<<<<<< HEAD
+=======
+.hypothesis/
+>>>>>>> 54c11a3a3c8aca4575624ad6ebc29159d7dff7cc
 
 # Translations
 *.mo
@@ -55,6 +63,9 @@ docs/_build/
 
 # PyBuilder
 target/
+<<<<<<< HEAD
 
 # JetBrains settings
 .idea
+=======
+>>>>>>> 54c11a3a3c8aca4575624ad6ebc29159d7dff7cc
