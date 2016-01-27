@@ -300,6 +300,7 @@ def create():
     return render_template('create.html')
 
 @app.context_processor
+
 def _inject_user():
     return {'current_user': get_current_user()}
 
